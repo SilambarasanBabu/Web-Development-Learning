@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo list</title>
+    <style>
+        body{
+            font-family: Arial;
+        }
+
+        .css-grid,.input-grid{
+          display: grid;
+          grid-template-columns: 200px 150px 100px;
+          column-gap: 10px;
+          row-gap: 10px;
+          align-items: center;
+        }
+
+        .input-grid{
+            margin-bottom: 10px;
+            align-items: stretch;
+        }
+
+        .css-name,.css-due{
+            font-size: 15px;
+            padding: 6px;
+        }
+
+        .css-add{
+            background-color: green;
+            color: white;
+            border: none;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        .css-del{
+            background-color: darkred;
+            color: white;
+            border: none;
+            font-size: 15px;
+            cursor: pointer;
+            padding-top: 10px;
+            padding-bottom: 10px ;
+        }
+
+    </style>
+</head>
+<body>
+    <p>Todo List</p>
+<div class="input-grid">
+    <input type="text" placeholder="Todo name" class="js-name-input css-name">
+    <input type="date" class="js-due css-due">
+    <button class="css-add" onclick="addTodo();">Add</button>
+</div>
+    <div class="js-todo-list-1 css-grid"></div>
+    <script>
+        const todoList = [];
+        render();
+
+        function render (){
+
+        let todoListHtml = '';
+
+        for(let i=0; i<todoList.length; i++){
+            const todoObject = todoList[i];
+            const name = todoObject.name
+            const dueDate = todoObject.dueDate
+            const html =`<div>${name}</div>
+            <div>${dueDate}</div>
+            <button onclick="
+                todoList.splice(${i},1);
+                render();
+                " class="css-del">Delete</button>`;
+            todoListHtml += html;
+        }
+        document.querySelector('.js-todo-list-1').innerHTML=todoListHtml;
+
+    }
+
+        function addTodo(){
+              const inputElement = document.querySelector('.js-name-input');
+              const name = inputElement.value
+
+              const dueElement = document.querySelector('.js-due');
+              const dueDate =  dueElement.value
+              
+              todoList.push({
+                name: name,
+                dueDate: dueDate
+            
+            });
+              inputElement.value = '';
+              render();
+        }
+    </script>
+</body>
+</html>
