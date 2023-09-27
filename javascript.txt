@@ -1,0 +1,41 @@
+Java scprit
+
+-Funcation
+    funcation name(){
+       var add = (3+4)
+    }
+
+-Object 
+    User defined object(created by an individual)
+    Buildin Object(Already exist ready use condition) ex=Document
+
+-Arrays
+    It must be declared in sqare bracket we can also create an array of object
+
+-Condition statement
+    If condition statment
+    Ternary(Single line code for IF condition '?'  ':')
+    loop conditions such as while and for...
+
+-Arrow Funcation(It is used to simplify the normal funcation)
+    name = () => (5+5)
+
+-Higher order funcation (2 funcation inside 1 funcation)
+
+-forEach  (it uses arrays)
+
+-Map (it uses array of objects)
+
+-Filter (it uses array of objects)
+
+-Scope  (it is used in variables)
+     Global level declaration 'var'
+     Block level declaration 'Let'
+
+-Context (it is used in objects)
+     'This.' keyword to call funcation
+     '.Call' keyword is to call funcation out side the scope
+
+-Anonamus funcation
+      (name) => return
+
